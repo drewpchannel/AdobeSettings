@@ -1,10 +1,9 @@
-$SID = & ".\SIDget\GetSID.ps1"
-Write-Host $SID
+Invoke-WebRequest https://github.com/drewpchannel/AdobeSettings/archive/refs/heads/main.zip -OutFile .\asa.zip
+Expand-Archive .\asa.zip -Force
 
-$filePath = Resolve-Path ".\AdobeSettings-main"
+$SID = & ".\asa\AdobeSettings-main\SIDget\GetSID.ps1"
+
 $regPath = "Registry::HKEY_USERS\$SID\SOFTWARE\Adobe\Acrobat Distiller\DC\AdobePDFOutputFolder"
-
-Write-Host $regPath
 
 #Set the folder for Adobe PDF Output Folder
 if (-Not (Test-Path -Path $regPath))
