@@ -17,3 +17,6 @@ Set-ItemProperty -Path $regPath -Name "2" -Value "C:\Users\lab\Documents\Reports
 #Set to not View Adobe PDF Results
 $regPath2 = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Print\Printers\Adobe PDF\PrinterDriverData"
 Set-ItemProperty -Path $regPath2 -Name ViewPrintOutput -Value 0
+
+$regPath3 = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Print\Printers\Adobe PDF\PrinterDriverData"
+Set-ItemProperty -Path $regPath3 -Name AskToReplacePDF -Value 2
